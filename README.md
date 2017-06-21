@@ -1,5 +1,5 @@
 # MongoDB - NOSQL Databse.
-    _Document oriented Database_
+    Document oriented Database
 ## Features:
   - CRUD Operations
   - Indexing
