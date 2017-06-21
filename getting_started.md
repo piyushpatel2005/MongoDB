@@ -91,3 +91,136 @@ db.blog.update({"title": "My blog"}, post);
 ```javascript
   db.blog.remove({"title": "My blog"});
 ```
+
+## Data Types
+
+1. null
+```javascript
+  {"x": null}
+```
+
+2. Number: This defaults to 64-bit floating point number.
+```javascript
+  {"x": 3.14}
+
+  {"x": NumberInt("3")}
+  {"x": NumberLong("3")}
+```
+
+3. String:
+```javascript
+  {"x": "foobar"}
+```
+
+4. Date: stored as miliseconds since the epoch.
+```javascript
+  {"x": new Date()}
+```
+
+5. Regular expressions:
+```javascript
+  {"x": /foobar/i}
+```
+
+6. Array
+```javascript
+  {"x": ["a", "b", "c"]}
+```
+
+7. Embedded documents
+  Documents can contain entire documents as values in parent document.
+```javascript
+  {"x": {"foo": "bar"}}
+```
+
+8. Object Id: 12-byte ID
+Every document must have an `_id` key. It defaults to ObjectId. In a single collection, every document must have a unique value for id. MongoDB's distributed nature makes it difficult and time-consuming to synchronize autoincrementing primary keys across multiple servers if auto increment is used. Therefore, it uses ObjectId.
+
+12-byte ObjectId is created as follows
+
+First 4 bytes: Timestamp
+3 bytes: Machine
+2 bytes: PID
+3 bytes: Increment.
+
+As timestamp comes first, they can sort by insertion order.
+
+```javascript
+  {"x": ObjectId()}
+```
+
+9. Code
+
+```javascript
+  {"x": function () {/*...*/}}
+```
+
+## MongoDB shell
+
+To connect to the remove shell you can use this command.
+```javascript
+  mongo some-host:30000/myDB
+```
+
+You can find help using ```help``` command.
+Or for specific help ```db.foo.help()```.
+
+### Running scripts with the shell
+
+To run three scripts, you can run using.
+
+```
+mongo script1.js script2.js script3.js
+```
+
+To run on a non-default host/port mongod, use
+
+```
+mongo --quiet server-1:30000/foo script1.js script2.js script3.js
+```
+
+To run scripts from interactive shell, use load() function:
+```
+load("script1.js")
+```
+JavaScript equivalent for Shell helpers.
+use foo           db.getSisterDB("foo")
+show dbs          db.getMongo().getDBs()
+show collections  db.getCollectionNames()
+
+
+You can run shell commands using Mongo run() function.
+
+For example to use "pwd" command. Use following in Mongo shell.
+
+```javascript
+  run("pwd")
+```
+
+With .mongorc.js file, we can run initial scripts when we launch the mongo. This file goes in the home directory.
+
+You can also customize the prompt in .mongorc.js file.
+
+```javascript
+prompt = function () {
+  return (new Date()) + "> ";
+};
+```
+OR
+
+```javascript
+
+prompt = function () {
+  if(typeof db == 'undefined') {
+    return '(nodb)> ';
+  }
+
+  try {
+    db.runCommand({getLastError: 1});
+  }
+  catch(e) {
+    print(e);
+  }
+  return db+"> ";
+};
+```
