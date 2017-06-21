@@ -7,4 +7,4 @@
   - File storage.
 
 
-[Getting Started](getting_started.md)
+[Getting Started](src/getting_started.md)

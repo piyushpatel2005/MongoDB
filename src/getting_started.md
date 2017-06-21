@@ -25,9 +25,9 @@ Field order does not matter.
 
 MongoDB is almost always run as a network server. To start the server, run
 
-    ```
+```
     mongod
-    ```
+```
 It will use default data directory '/data/db'. MongoDB listens on port 27017.  If port is not available, the server will fail.
 
 To start the mongo shell, run the ```mongo``` command. It will connect to default db 'test'.
