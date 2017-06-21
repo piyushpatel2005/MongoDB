@@ -5,3 +5,6 @@
   - Indexing
   - Aggregation
   - File storage.
+
+
+[Getting Started](getting_started.md)
