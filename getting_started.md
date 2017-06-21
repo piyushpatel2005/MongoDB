@@ -4,7 +4,9 @@
 
 Documents are key-value pairs like this:
 
-```{"greeting": "Hello, World"}```
+```javascript
+{"greeting": "Hello, World"}
+```
 
 Key must not be null character '\0'.
 It cannot be . or $ as they have special meaning in Mongo.
