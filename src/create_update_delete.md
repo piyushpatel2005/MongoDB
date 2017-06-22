@@ -106,14 +106,19 @@ db.papers.update({
 db.inventory.find({qty: {$eq: 20}});
 ```
 **$gt** greater than
+
 **$gte** greater than or equal to
+
 **$lt** less than
+
 **$lte** less than or equal to
+
 **$in** selects documents where the value of a field equals any value in the specified array.
 ```
 db.inventory.find({qty: {$in: [5, 15]}})
 ```
 **$nin** not in
+
 **$addToSet** to avoid repetition of the same value.
 
 **$pop** can remove elements from arrays from either end.
