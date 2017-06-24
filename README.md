@@ -1,7 +1,7 @@
 # MongoDB - NOSQL Databse.
     Document oriented Database
 
-[Logo of MongoDB](img/mongodb-logo.png)
+![Logo of MongoDB](img/mongodb-logo.png)
 
 ## Features:
   - CRUD Operations
