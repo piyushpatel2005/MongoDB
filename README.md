@@ -17,3 +17,5 @@
 [Create, Update and Delete Documents](src/create_update_delete.md)
 
 [Queries with Mongo](src/queries.md)
+
+[Indexing](src/indexing.md)
